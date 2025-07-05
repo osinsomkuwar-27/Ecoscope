@@ -1,11 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoScope – AI Sustainability Dashboard</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4299/4299917.png" type="image/png">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.png" />
+  <!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
 </head>
-<body>
-    
-</body>
+<body class="bg-green-50 text-gray-800 font-sans min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-green-700 text-white p-4 shadow-md">
+    <h1 class="text-3xl font-bold">🌿 EcoScope</h1>
+    <p class="text-sm">AI-powered Environmental Dashboard</p>
+  </header>
+
+  <!-- Main Section -->
+  <main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- Map Section -->
+    <section class="col-span-2 bg-white shadow rounded-xl p-4">
+      <h2 class="text-xl font-semibold mb-2">📍 Live Environmental Map</h2>
+      <div class="w-full h-80 bg-gray-200 flex items-center justify-center rounded">
+        <p class="text-gray-500">[Map Placeholder – use Mapbox/Leaflet here]</p>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white shadow rounded-xl p-4">
+      <h2 class="text-xl font-semibold mb-2">📊 Pollution & Weather Stats</h2>
+      <ul class="text-sm text-gray-600 list-none space-y-1">
+  <li><i class="fas fa-thermometer-half text-red-500 mr-2"></i>Temperature: <span id="temp">--</span></li>
+  <li><i class="fas fa-smog text-yellow-500 mr-2"></i>AQI: <span id="aqi">--</span></li>
+  <li><i class="fas fa-wind text-blue-500 mr-2"></i>Wind: <span id="wind">--</span></li>
+  <li><i class="fas fa-tint text-cyan-500 mr-2"></i>Humidity: <span id="humidity">--</span></li>
+</ul>
+
+
+    </section>
+
+    <!-- AI Eco Tips -->
+    <section class="bg-white shadow rounded-xl p-4 md:col-span-3">
+      <h2 class="text-xl font-semibold mb-2">🌱 Smart Eco Tips</h2>
+      <ul class="list-disc pl-6 text-sm text-green-800">
+        <li>Turn off taps while brushing to save water.</li>
+        <li>Use cloth bags instead of plastic.</li>
+        <li>Compost your kitchen waste.</li>
+        <li>Cycle or walk short distances.</li>
+      </ul>
+    </section>
+
+    <!-- Feedback -->
+    <section class="bg-white shadow rounded-xl p-4 md:col-span-3">
+    <h2 class="text-xl font-semibold mb-2">📝 Community Action Feedback</h2>
+<form id="feedbackForm" class="space-y-4" onsubmit="submitFeedback(event)">
+  <input type="text" id="name" placeholder="Your Name" class="w-full p-2 border rounded" required />
+  <textarea id="feedback" placeholder="Share your eco-action..." class="w-full p-2 border rounded" required></textarea>
+  <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl transition">Submit</button>
+</form>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 text-sm text-gray-500">
+    © 2025 EcoScope – Built for smarter, greener living 🌍
+  </footer>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="app.js"></script>
+
+ </body>
 </html>
