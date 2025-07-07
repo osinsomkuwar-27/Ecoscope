@@ -1,59 +1,46 @@
-// Simulate fetching real-time data (replace with API later)
 document.addEventListener("DOMContentLoaded", () => {
-  const weatherStats = {
-    temperature: "28°C",
-    aqi: "85 (Moderate)",
-    wind: "10 km/h",
-    humidity: "60%"
-  };
+  fetch("http://localhost:5000/api/data")
+    .then(res => res.json())
+    .then(data => {
+      if (data.length > 0) {
+        const latest = data[data.length - 1];
+        document.getElementById("temp").textContent = latest.temperature + "°C";
+        document.getElementById("aqi").textContent = latest.aqi;
+        document.getElementById("wind").textContent = latest.wind;
+        document.getElementById("humidity").textContent = latest.humidity + "%";
+      }
+    })
+    .catch(err => console.error("Error fetching data:", err));
 
-  document.getElementById("temp").textContent = weatherStats.temperature;
-  document.getElementById("aqi").textContent = weatherStats.aqi;
-  document.getElementById("wind").textContent = weatherStats.wind;
-  document.getElementById("humidity").textContent = weatherStats.humidity;
-});
-
-// Form submission
-function submitFeedback(event) {
-  event.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const feedback = document.getElementById("feedback").value.trim();
-
-  if (name && feedback) {
-    alert(`Thanks for your input, ${name}!\n\n"${feedback}"`);
-    document.getElementById("feedbackForm").reset();
-  } else {
-    alert("Please fill out both name and feedback fields.");
+  const form = document.getElementById("feedbackForm");
+  if (form) {
+    form.addEventListener("submit", submitFeedback);
   }
-}
-// Load mock weather data when DOM is ready
-document.addEventListener("DOMContentLoaded", () => {
-  const data = {
-    temperature: "28°C",
-    aqi: "85 (Moderate)",
-    wind: "10 km/h",
-    humidity: "60%"
-  };
-
-  document.getElementById("temp").textContent = data.temperature;
-  document.getElementById("aqi").textContent = data.aqi;
-  document.getElementById("wind").textContent = data.wind;
-  document.getElementById("humidity").textContent = data.humidity;
 });
 
-// Handle form submission
 function submitFeedback(event) {
   event.preventDefault();
 
   const name = document.getElementById("name").value.trim();
   const feedback = document.getElementById("feedback").value.trim();
 
-  if (name && feedback) {
-    alert(`Thanks, ${name}! Your feedback:\n"${feedback}"`);
-    document.getElementById("feedbackForm").reset();
-  } else {
+  if (!name || !feedback) {
     alert("Please fill out both fields.");
+    return;
   }
-}
 
+  fetch("http://localhost:5000/submit-feedback", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, feedback })
+  })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.message);
+      document.getElementById("feedbackForm").reset();
+    })
+    .catch(err => {
+      alert("Error submitting feedback.");
+      console.error(err);
+    });
+}
