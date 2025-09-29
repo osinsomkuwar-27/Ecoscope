@@ -1,8 +1,17 @@
 import React from 'react';
 
+import Hero from './Hero';
+import Stats from './Stats';
+import Navbar from '../Navbar';
+
 function HomePage() {
     return ( 
-        <h1>Home Page</h1>
+        <>
+            <Navbar/>
+            <Hero />
+            <Stats />
+            <Footer />
+        </>
      );
 }
 

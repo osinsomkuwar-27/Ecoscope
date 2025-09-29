@@ -7,4 +7,3 @@ function Team() {
 }
 
 export default Team;
-<h1>Team Section</h1>

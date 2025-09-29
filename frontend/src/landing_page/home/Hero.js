@@ -1,9 +1,15 @@
 import React from 'react';
 
 function Hero() {
-    return ( 
-        <h1>Hero Section</h1>
-     );
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <h1>HomePage</h1>
+          </div>
+        </div>
+      </div>
+    );
 }
 
 export default Hero;
