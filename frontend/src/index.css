@@ -11,3 +11,67 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f5132, #0b0b0b, #1a1a1a);
+  color: #e8f5e9;
+  overflow: hidden;
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  font-weight: 500;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.eco-navbar {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.navbar .nav-link {
+  color: #d1fae5 !important;
+  transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+  color: #28a745 !important;
+}
+
+.stats-section {
+  background: linear-gradient(180deg, #0b0b0b 0%, #0f5132 100%);
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.footer-section {
+  background: linear-gradient(180deg, #0b0b0b 0%, #000000 100%);
+  border-top: 1px solid #1a1a1a;
+}
+
+.footer-section a.btn {
+  font-weight: 500;
+}
