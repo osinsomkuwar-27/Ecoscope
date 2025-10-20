@@ -2,7 +2,10 @@ import React from 'react';
 
 function Footer() {
     return (
-      <footer className="footer-section text-center text-light py-5">
+      <footer
+        className="footer-section text-center text-light py-5"
+        style={{ fontSize: "0.9rem", color: "white" }}
+      >
         <div className="container">
           <h3 className="text-success mb-3">EcoScope ♻️</h3>
           <p className="text-muted mb-4">
