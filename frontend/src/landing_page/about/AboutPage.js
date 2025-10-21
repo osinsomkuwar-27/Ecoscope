@@ -8,10 +8,10 @@ import Footer from '../../common/Footer';
 function AboutPage() {
     return ( 
         <>
-           <Navbar/>
+           
            <Hero/>
            <Team/>
-           <Footer/>
+           
         </>
      );
 }
